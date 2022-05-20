@@ -11,7 +11,7 @@ const Management = () => {
 
   //read data
   useEffect(() => {
-    const url = `http://localhost:5000/channel/${user.email}`
+    const url = `https://sheltered-ocean-13586.herokuapp.com/channel/${user.email}`
     fetch(url)
         .then(res => res.json())
         .then(data => setChannels(data));
@@ -19,7 +19,7 @@ const Management = () => {
 
 const handleStationDelete = (_id) =>{
      
-    const url=`http://localhost:5000/channel/${_id}`
+    const url=`https://sheltered-ocean-13586.herokuapp.com/channel/${_id}`
     fetch(url, {
       method:'DELETE'
     })

@@ -53,7 +53,7 @@ const ManageStation = ({station , handleStationDelete}) => {
         }
        console.log(updateStation)
    
-       fetch('http://localhost:5000/channel/edit', {
+       fetch('https://sheltered-ocean-13586.herokuapp.com/channel/edit', {
            method: 'PUT',
            headers: {
                

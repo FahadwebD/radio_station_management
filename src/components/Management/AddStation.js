@@ -50,7 +50,7 @@ const AddStation = () => {
         userEmail:user.email
     }
    console.log(updateData)
-    fetch('http://localhost:5000/channel/add' , {
+    fetch('https://sheltered-ocean-13586.herokuapp.com/channel/add' , {
       method:'POST',
       headers:{
           'content-type': 'application/json'
