@@ -5,8 +5,6 @@ import Login from './components/Login/Login';
 import ParticlesContainer from './components/ParticlesContainer/ParticlesContainer';
 import Welcome from './components/Welcome/Welcome';
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
   Routes
 } from "react-router-dom";
