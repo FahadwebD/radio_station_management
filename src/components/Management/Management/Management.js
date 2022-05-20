@@ -17,6 +17,7 @@ const Management = () => {
         .then(data => setChannels(data));
 }, [user.email])
 
+console.log(channels)
 const handleStationDelete = (_id) =>{
      
     const url=`https://sheltered-ocean-13586.herokuapp.com/channel/${_id}`
