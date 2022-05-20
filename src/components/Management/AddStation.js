@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../hook/useAuth';
 
 
 
@@ -18,7 +19,7 @@ const style = {
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
-  pt: 2,
+  pt: 4,
   px: 4,
   pb: 3,
   
@@ -27,8 +28,8 @@ const style = {
 
 const AddStation = () => {
     const [open, setOpen] = React.useState(false);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const {user} = useAuth();
     
     const handleOpen = () => {
       setOpen(true);
@@ -37,26 +38,25 @@ const AddStation = () => {
       setOpen(false);
     };
 
-//  const { register, handleSubmit , reset } = useForm();
-//   const onSubmit = data => {
-//     console.log(data);
-//     fetch('https://floating-cliffs-15059.herokuapp.com/add/services' , {
-//       method:'POST',
-//       headers:{
-//           'content-type': 'application/json'
-//       },
-//       body: JSON.stringify(data)
-//   })
-//   .then(res => res.json())
-//   .then(data => {
-//       if(data.insertedId){
-//           alert('success')
-//           reset();
+  const onSubmit = data => {
+    console.log(data);
+    fetch('http://localhost:5000/channel/add' , {
+      method:'POST',
+      headers:{
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(data => {
+      if(data.insertedId){
+          alert('success')
+          reset();
          
-//       }
-//   })
-//   reset()
-//   }
+      }
+  })
+  reset()
+  }
 
  
     return (
@@ -75,14 +75,16 @@ const AddStation = () => {
         }}
       >
         <Fade in={open}>
-          <Box sx={style} style={{textAlign:'center'}}>
+          <Box sx={style} style={{textAlign:'center' , padding:'20px'}}>
           <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name", { required: true, maxLength: 20 })} />
-      <input {...register("time")} />
-      <input type="number" {...register("price", {
-    valueAsNumber: true,
-  })}/>
-      <input type="number" {...register("space", { min: 1, max: 12 ,valueAsNumber: true})} />
+      <br /><br />
+      <input {...register("img")} />
+      <br /><br />
+      <input type="number" {...register("region", {valueAsNumber: true,})}/>
+      <br /><br />
+      <input type="number" {...register("channelNo", { min: 1, max: 12 ,valueAsNumber: true})} />
+
       <br /><br />
       <input type="submit" />
     </form>

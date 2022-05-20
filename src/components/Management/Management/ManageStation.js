@@ -85,7 +85,7 @@ const ManageStation = ({station }) => {
                
             </div>
             <div style={{display:"flex" , justifyContent:'space-between'}}>
-            <h5>{station.name}</h5> <div><Button style={{backgroundColor:'green' , color:'white'}} onClick={handleOpen}>Update</Button> <Button style={{backgroundColor:'red' , color:'white'}} >Delete</Button></div>
+            <h5 style={{color:'white'}}>{station.name}</h5> <div><Button style={{backgroundColor:'green' , color:'white'}} onClick={handleOpen}>Update</Button> <Button style={{backgroundColor:'red' , color:'white'}} >Delete</Button></div>
         </div>
         <hr />
         <Modal

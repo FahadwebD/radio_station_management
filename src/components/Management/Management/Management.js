@@ -1,3 +1,4 @@
+import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import AddStation from '../AddStation';
 import ManageStation from './ManageStation';
@@ -18,7 +19,7 @@ const Management = () => {
 
     return (
         <div>
-           
+            <Container>
             <div>
             <h1>Manage Your Channel</h1>
             <AddStation></AddStation>
@@ -27,7 +28,8 @@ const Management = () => {
             <h5>Name</h5> <div style={{marginRight:'50px'}}><h5>Action</h5></div>
         </div>
         <hr />
-            <div>
+        
+         <div>
                 {
                     station?.map(station => <ManageStation
                         
@@ -38,7 +40,9 @@ const Management = () => {
                        >  </ManageStation>)
                 }
             </div>
+        
         </div>
+        </Container>
         </div>
     );
 };
