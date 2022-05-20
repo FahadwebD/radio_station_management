@@ -18,7 +18,7 @@ const style = {
   p: 4,
 };
 
-const ManageStation = ({station }) => {
+const ManageStation = ({station , handleStationDelete}) => {
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -82,7 +82,7 @@ const ManageStation = ({station }) => {
                
             </div>
             <div style={{display:"flex" , justifyContent:'space-between'}}>
-            <h5 style={{color:'white'}}>{station.name}</h5> <div><Button style={{backgroundColor:'green' , color:'white'}} onClick={handleOpen}>Update</Button> <Button style={{backgroundColor:'red' , color:'white'}} >Delete</Button></div>
+            <h5 style={{color:'white'}}>{station.name}</h5> <div><Button style={{backgroundColor:'green' , color:'white'}} onClick={handleOpen}>Update</Button> <Button onClick={()=>handleStationDelete (station._id)} style={{backgroundColor:'red' , color:'white'}} >Delete</Button></div>
         </div>
         <hr />
         <Modal

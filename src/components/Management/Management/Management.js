@@ -17,6 +17,25 @@ const Management = () => {
         .then(data => setChannels(data));
 }, [user.email])
 
+const handleStationDelete = (_id) =>{
+     
+    const url=`http://localhost:5000/channel/${_id}`
+    fetch(url, {
+      method:'DELETE'
+    })
+    .then(res => res.json())
+    .then(data=>{
+      if(data.deletedCount>0){
+       
+        alert('delete')
+     
+        const remaining = channels?.filter(channel => channel._id !== _id)
+        
+        setChannels(remaining)
+      }
+    })
+  }
+
     return (
         <div>
             <Container>
@@ -35,6 +54,7 @@ const Management = () => {
                         
                         key={station._id}
                         station={station}
+                        handleStationDelete={handleStationDelete}
                       
                         
                        >  </ManageStation>)
