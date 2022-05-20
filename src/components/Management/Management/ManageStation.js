@@ -24,53 +24,50 @@ const ManageStation = ({station }) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [name, setName] = React.useState();
-    const [time, setTime] = React.useState();
-    const [price, setPrice] = React.useState();
-    const [space, setSpace] = React.useState();
+    const [region, setRegion] = React.useState();
+    const [channel, setChannel] = React.useState();
+   
 
 
 
-    const handleChange = (event) => {
-        setSpace(event.target.value);
-      };
       const handleNameChange = (event) => {
         setName(event.target.value);
       };
-      const handleTimeChange = (event) => {
-        setTime(event.target.value);
+      const handleRegionChange = (event) => {
+        setRegion(event.target.value);
       };
-      const handlePriceChange = (event) => {
-        setPrice(event.target.value);
+      const handleChannelChange = (event) => {
+        setChannel(event.target.value);
       };
 
-      const handleServiceSubmit = e => {
-    //     const _id = service._id
+      const handleStationSubmit = e => {
+        const _id = station._id
       
-    //     const updateService = {
-    //         name,
-    //         time,
-    //         price: parseInt(price),
-    //         space : parseInt(space),
-    //         _id
+        const updateStation = {
+            name,
+            region,
+            channel: parseInt(channel),
+            _id
             
-    //     }
-    //    console.log(updateService)
+            
+        }
+       console.log(updateStation)
    
-    //    fetch('https://floating-cliffs-15059.herokuapp.com/services/edit', {
-    //        method: 'PUT',
-    //        headers: {
+       fetch('http://localhost:5000/channel/edit', {
+           method: 'PUT',
+           headers: {
                
-    //            'content-type': 'application/json'
-    //        },
-    //        body: JSON.stringify(updateService)
-    //    })
-    //        .then(res => res.json())
-    //        .then(data => {
-    //            if (data.modifiedCount) {
+               'content-type': 'application/json'
+           },
+           body: JSON.stringify(updateStation)
+       })
+           .then(res => res.json())
+           .then(data => {
+               if (data.modifiedCount) {
                   
-    //                console.log('ok')
-    //            }
-    //        })
+                   console.log('ok')
+               }
+           })
 
       
 
@@ -98,7 +95,7 @@ const ManageStation = ({station }) => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>
-          <form onSubmit={handleServiceSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
+          <form onSubmit={handleStationSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
                       
                         <TextField
                             required
@@ -119,8 +116,8 @@ const ManageStation = ({station }) => {
                             name="Time"
                            
                             
-                            defaultValue={station.time}
-                            onChange={handleTimeChange}
+                            defaultValue={station.region}
+                            onChange={handleRegionChange}
                           
                             size="small"
                         />
@@ -133,23 +130,12 @@ const ManageStation = ({station }) => {
                             name="price"
                             type="number"
                             
-                            defaultValue={station.price}
-                            onChange={handlePriceChange}
+                            defaultValue={station.channelNo}
+                            onChange={handleChannelChange}
                           
                             size="small"
                         />
-                         <TextField
-                            required
-                            sx={{ width: '90%', m: 1 }}
-                            id="outlined-size-small"
-                            name="space"
-                            type="number"
-                            InputProps={{ inputProps: { min: 0, max: 10 } }}
-                            defaultValue={station.space}
-                            onChange={handleChange}
-                          
-                            size="small"
-                        />
+                        
                         <div style={{ textAlign:'right' , marginRight:'40px'}}><Button style={{backgroundColor:'#5CE7ED' }} type="submit" variant="contained">Send</Button></div>
 
                         </form>
