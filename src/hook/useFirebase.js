@@ -38,7 +38,7 @@ const useFirebase = () =>{
                 }).then(() => {
                 }).catch((error) => {
                 });
-                history.replace('/');
+                history('/');
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -52,8 +52,8 @@ const useFirebase = () =>{
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const destination = location?.state?.from || '/';
-                history.replace(destination);
+               
+                history('/welcome');
                 setAuthError('');
             })
             .catch((error) => {
@@ -62,15 +62,14 @@ const useFirebase = () =>{
             .finally(() => setIsLoading(false));
     }
 
-    const signInWithGoogle = (location, history) => {
+    const signInWithGoogle = (history) => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
                 // saveUser(user.email, user.displayName, 'PUT');
                 setAuthError('');
-                const destination = location?.state?.from || '/';
-                history.replace(destination);
+                history('/');
             }).catch((error) => {
                 setAuthError(error.message);
             }).finally(() => setIsLoading(false));
@@ -105,7 +104,9 @@ const useFirebase = () =>{
     return {
         signInWithGoogle,
         logout ,
-        user
+        user,
+        loginUser,
+        registerUser
     }
 }
 

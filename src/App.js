@@ -11,6 +11,7 @@ import {
   Routes
 } from "react-router-dom";
 import Register from './components/Register/Register';
+import Management from './components/Management/Management/Management';
 
 
 
@@ -18,11 +19,13 @@ function App() {
   return (
     <div className="App" >
     
-   <ParticlesContainer></ParticlesContainer>
+  
         
        <AuthProvider>
        <Routes>
         <Route path="/" element={<Welcome/>} />
+        <Route path="/welcome" element={<Welcome/>} />
+        <Route path="/manage" element={<Management/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>} />
       </Routes>

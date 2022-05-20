@@ -125,7 +125,7 @@ a {
   
   input[type=text]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #f91944;
+    border-bottom: 2px solid #ff8abe;
   }
   
   input[type=text]:placeholder {
@@ -153,7 +153,7 @@ a {
   }
   input[type=email]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #f91944;
+    border-bottom: 2px solid #ff8abe;
   }
   
   input[type=email]:placeholder {
@@ -182,7 +182,7 @@ a {
   
   input[type=password]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #f91944;
+    border-bottom: 2px solid #ff8abe;
   }
   
   input[type=password]:placeholder {
@@ -277,13 +277,13 @@ a {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #f91944;
+    background-color: #ff8abe;
     content: "";
     transition: width 0.2s;
   }
   
   .underlineHover:hover {
-    color: #f91944;
+    color: #ff8abe;
   }
   
   .underlineHover:hover:after{
@@ -304,7 +304,7 @@ a {
     margin: 20px;
   }
   #bt{
-    background-color:#f91944 ;
+    background-color:#ff8abe ;
      border:none ;
      padding:10px 170px
   }
@@ -312,7 +312,7 @@ a {
   @media only screen  and (max-width:688px){
   
     #bt{
-        background-color:#f91944 ;
+        background-color:#ff8abe ;
          border:none ;
          padding:10px 110px
       }
@@ -324,7 +324,7 @@ a {
 }
 @media only screen  and (min-width:689px) and (max-width:990px){
     #bt{
-        background-color:#f91944 ;
+        background-color:#ff8abe ;
          border:none ;
          padding:10px 110px
       }

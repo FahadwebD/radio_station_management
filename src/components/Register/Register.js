@@ -1,7 +1,9 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
+import ParticlesContainer from '../ParticlesContainer/ParticlesContainer';
+
 
 
 
@@ -10,7 +12,9 @@ const Register = () => {
 
   const [loginData, setLoginData] = useState({});
   
-  const {registerUser , isLoading , user , authError} = useAuth();
+  const {registerUser , isLoading , user , authError , loginUser} = useAuth();
+
+  const history = useNavigate();
 
   const handleOnChange = e => {
       const field = e.target.name;
@@ -19,16 +23,20 @@ const Register = () => {
       newLoginData[field] = value;
      
       setLoginData(newLoginData);
+      console.log(newLoginData)
  
   }
 
   const handleLoginSubmit = e => {
      
-     registerUser(loginData.email , loginData.password , loginData.name)
-      e.preventDefault();
+    registerUser(loginData.email, loginData.password, loginData.name, history);
+    e.preventDefault();
   }
+
+
     return (
         <div>
+             <ParticlesContainer></ParticlesContainer>
          <div style={{marginTop:'50px'}}>
             <div className="wrapper fadeInDown">
   <div id="formContent">
