@@ -44,7 +44,7 @@ const Register = () => {
 
 
     <div className="fadeIn first">
-      <img  id="icon" alt="User Icon" />
+      <img  src='https://www.pngkey.com/png/full/436-4369658_radio-cartoon.png' id="icon" alt="User Icon" />
     </div>
 
   

@@ -61,17 +61,17 @@ const AddStation = () => {
   .then(data => {
       if(data.insertedId){
           alert('success')
-          reset();
+         handleClose()
          
       }
   })
-  reset()
+ 
   }
 
  
     return (
         <div style={{textAlign:'left'}}>
-            <Button style={{backgroundColor:'#5CE7ED' , color:'white'}} onClick={handleOpen}>Add Service</Button>
+            <Button style={{backgroundColor:'#ff8abe' , color:'white'}} onClick={handleOpen}>Add Service</Button>
             <div>
             <Modal
         aria-labelledby="transition-modal-title"

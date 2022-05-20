@@ -43,7 +43,7 @@ const Login = () => {
 
 
     <div className="fadeIn first">
-      <img src='' id="icon" alt="User Icon" />
+      <img src='https://www.pngkey.com/png/full/436-4369658_radio-cartoon.png' id="icon" alt="User Icon" />
     </div>
 
   
@@ -61,14 +61,12 @@ const Login = () => {
       <Button onClick={handleGoogleSignIn} className=' fadeIn fourth' id='bt'  >Google</Button>
       </div>
     <div id="formFooter">
-      <Link style={{textDecoration:'none' , color:'black'}} className="underlineHover" to="/register">Already Have An Account?</Link>
+      <Link style={{textDecoration:'none' , color:'black'}} className="underlineHover" to="/register">Don't Have An Account?</Link>
     </div>
 
   </div>
 </div>
-            <h1 style={{color:'white'}}>Name : {user?.email}</h1>
-            
-            {user?.email?<button onClick={logout}>Log Out </button>:<button onClick={handleGoogleSignIn}>Google</button>}
+      
         </div>
     );
 };

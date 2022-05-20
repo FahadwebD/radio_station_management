@@ -93,7 +93,7 @@ const ManageStation = ({station , handleStationDelete}) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+           Update Information of Station
           </Typography>
           <form onSubmit={handleStationSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
                       
@@ -103,7 +103,7 @@ const ManageStation = ({station , handleStationDelete}) => {
                             id="outlined-size-small"
                             name="Time"
                            
-                            
+                            label='Name'
                             defaultValue={station.name}
                             onChange={handleNameChange}
                           
@@ -114,7 +114,7 @@ const ManageStation = ({station , handleStationDelete}) => {
                             sx={{ width: '90%', m: 1 }}
                             id="outlined-size-small"
                             name="Time"
-                           
+                            lebel='Region'
                             
                             defaultValue={station.region}
                             onChange={handleRegionChange}
@@ -129,7 +129,7 @@ const ManageStation = ({station , handleStationDelete}) => {
                             id="outlined-size-small"
                             name="price"
                             type="number"
-                            
+                            lebel='chanelNo'
                             defaultValue={station.channelNo}
                             onChange={handleChannelChange}
                           

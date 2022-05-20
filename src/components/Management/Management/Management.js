@@ -1,21 +1,21 @@
-import { Container } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hook/useAuth';
 import AddStation from '../AddStation';
 import ManageStation from './ManageStation';
-
+import LogoutIcon from '@mui/icons-material/Logout';
 const Management = () => {
 
     const [channels , setChannels] = useState([])
-    const {user} = useAuth()
-
+    const {user , logout} = useAuth()
+ console.log(user)
   //read data
   useEffect(() => {
     const url = `https://sheltered-ocean-13586.herokuapp.com/channel/${user.email}`
     fetch(url)
         .then(res => res.json())
         .then(data => setChannels(data));
-}, [user.email])
+}, [user])
 
 console.log(channels)
 const handleStationDelete = (_id) =>{
@@ -41,11 +41,11 @@ const handleStationDelete = (_id) =>{
         <div>
             <Container>
             <div>
-            <h1>Manage Your Channel</h1>
+            <h1 style={{color:'white'}}>Manage Your Channel</h1>
             <AddStation></AddStation>
 
             <div style={{display:"flex" , justifyContent:'space-between'}}>
-            <h5>Name</h5> <div style={{marginRight:'50px'}}><h5>Action</h5></div>
+            <h5 style={{color:'white'}}>Name</h5> <div style={{marginRight:'50px'}}><h5 style={{color:'white'}}>Action</h5></div>
         </div>
         <hr />
         
@@ -63,7 +63,9 @@ const handleStationDelete = (_id) =>{
             </div>
         
         </div>
+        <Button onClick={logout} style={{ backgroundColor:"#ff8abe" , color:'white',position:'absolute' , right:'0', bottom:'0'}} variant="contained" endIcon={<LogoutIcon />}>Log Out</Button>
         </Container>
+
         </div>
     );
 };

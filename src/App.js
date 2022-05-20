@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Register from './components/Register/Register';
 import Management from './components/Management/Management/Management';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 
 
 
@@ -23,7 +24,17 @@ function App() {
        <Routes>
         <Route path="/" element={<Welcome/>} />
         <Route path="/welcome" element={<Welcome/>} />
-        <Route path="/manage" element={<Management/>} />
+
+        <Route
+          path="/manage"
+          element={
+            <PrivateRoute>
+              <Management/>
+            </PrivateRoute>
+          }
+        />
+
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>} />
       </Routes>
