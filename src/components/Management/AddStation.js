@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -28,6 +28,7 @@ const style = {
 
 const AddStation = () => {
     const [open, setOpen] = React.useState(false);
+    
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const {user} = useAuth();
     
@@ -37,15 +38,24 @@ const AddStation = () => {
     const handleClose = () => {
       setOpen(false);
     };
+  
+
+    ///insert data
 
   const onSubmit = data => {
     console.log(data);
+    console.log(data);
+    const updateData = {
+        ...data,
+        userEmail:user.email
+    }
+   console.log(updateData)
     fetch('http://localhost:5000/channel/add' , {
       method:'POST',
       headers:{
           'content-type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(updateData)
   })
   .then(res => res.json())
   .then(data => {

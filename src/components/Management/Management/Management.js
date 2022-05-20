@@ -1,21 +1,21 @@
 import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import useAuth from '../../../hook/useAuth';
 import AddStation from '../AddStation';
 import ManageStation from './ManageStation';
 
 const Management = () => {
 
-    const [station , setStation] = useState()
+    const [channels , setChannels] = useState([])
+    const {user} = useAuth()
 
-    useEffect(()=>{
-
-
-        fetch('https://floating-cliffs-15059.herokuapp.com/services')
+  //read data
+  useEffect(() => {
+    const url = `http://localhost:5000/channel/${user.email}`
+    fetch(url)
         .then(res => res.json())
-        .then(data => setStation(data))
-
-
-    },[])
+        .then(data => setChannels(data));
+}, [user.email])
 
     return (
         <div>
@@ -31,7 +31,7 @@ const Management = () => {
         
          <div>
                 {
-                    station?.map(station => <ManageStation
+                    channels?.map(station => <ManageStation
                         
                         key={station._id}
                         station={station}
